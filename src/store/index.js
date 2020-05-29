@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
-import modules from './modules/index'
 import { API_URL } from "@/common/config";
 
 Vue.use(Vuex)
 
 export const store = () => new Vuex.Store({
-  modules,
   namespaced: true,
   state: {
     users: [],
