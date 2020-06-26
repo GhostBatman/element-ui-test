@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import { store } from './store'
 
 Vue.use(Router)
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
       component: () => import('@/components/users'),
       name: 'main',
-      redirect: {name: 'users'}
+      redirect: { name: 'users' }
     },
     {
       path: '/users',
@@ -28,3 +29,10 @@ export default new Router({
     },
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'login' && !store.state.isAuthenticated)
+    next({ name: 'login' })
+  else next()
+})
+export default router

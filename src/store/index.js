@@ -5,7 +5,7 @@ import { API_URL } from "@/common/config";
 
 Vue.use(Vuex)
 
-export const store = () => new Vuex.Store({
+export const store = new Vuex.Store({
   namespaced: true,
   state: {
     users: [],

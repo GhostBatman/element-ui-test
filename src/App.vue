@@ -18,28 +18,8 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
-  name: 'App',
-  computed: {
-    ...mapGetters({IS_AUTH: 'IS_AUTH'})
-  },
-  beforeMount() {
-    this.checkAuth()
-  },
-  watch: {
-    $route() {
-      this.checkAuth()
-    }
-  },
-  methods: {
-    checkAuth() {
-      const { name } = this.$route
-      if(!this.IS_AUTH && name !== 'login') {
-        this.$router.push({name: 'login'})
-      }
-    }
-  }
+  name: 'App'
 }
 </script>
 
